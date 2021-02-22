@@ -1,4 +1,13 @@
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({});
+const selectedLoginReducer = (selectedLogin = null, action) => {
+  if (action.type === "SEND_LOGINDATA") {
+    return action.payload;
+  }
+  return selectedLogin;
+};
+
+const rootReducer = combineReducers({
+  selectedLogin: selectedLoginReducer,
+});
 export default rootReducer;
