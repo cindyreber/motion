@@ -14,6 +14,8 @@ import {
   FormFieldWrapper,
   Button,
 } from "../../layout/signIn";
+import UserAvatar from "../../layout/svgs/UserAvatar";
+import Password from "../../layout/svgs/Password";
 
 function LoginForm(props) {
   const [email, setEmail] = useState("");
@@ -51,7 +53,9 @@ function LoginForm(props) {
               <h2>Sign In</h2>
               <form onSubmit={handleLogin}>
                 <FormFieldWrapper>
-                  <i className="fas fa-user-circle"></i>
+                  <i className="fas fa-user-circle">
+                    <UserAvatar />
+                  </i>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
@@ -60,7 +64,9 @@ function LoginForm(props) {
                   />
                 </FormFieldWrapper>
                 <FormFieldWrapper>
-                  <i className="fas fa-lock"></i>
+                  <i className="fas fa-lock">
+                    <Password />
+                  </i>
                   <input
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
