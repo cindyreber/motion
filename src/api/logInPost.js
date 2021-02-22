@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const baseURL = "https://motion.propulsion-home.ch/backend/";
-const data = {
-  email: "calvo.ezequias@gmail.com",
-  password: "1234",
-};
+// const data = {
+//   email: "calvo.ezequias@gmail.com",
+//   password: "1234",
+// };
 
-export const loginPost = async () => {
+export const loginPost = async (data) => {
   const response = await axios.post(`${baseURL}api/auth/token/`, data);
-  console.log(response);
+  return response;
 };
 
 // USING FETCH
