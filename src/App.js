@@ -1,10 +1,12 @@
 import React from "react";
-import { LogIn } from "./components/logIn";
+import LoginForm  from "./components/logIn";
+import { PurpleStyle } from "./components/LeftLogin"
 
 export const App = () => {
   return (
     <div>
-      <LogIn />
+      <LoginForm />
+      <PurpleStyle />
     </div>
   );
 };

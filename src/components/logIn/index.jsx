@@ -2,8 +2,6 @@ import React from 'react'
 import styled from "styled-components";
 
 
-
-
 function LoginForm() {
 
     const Button = styled.button `
@@ -24,7 +22,7 @@ function LoginForm() {
 
     const Rightwrapper = styled.div `
       width: 60vw;
-    `
+    ` 
 
     const FormWrapper = styled.div`
     min-height: 80vh;
@@ -90,8 +88,8 @@ function LoginForm() {
     return (
         <>
             <MainWrapper>
-                <Leftwrapper> CSS animations with @keyframes aren't scoped to a single component but you still don't want them to be global to avoid name collisions. This is why we export a keyframes helper which will generate a unique instance that you can use throughout your app:</Leftwrapper>
-                <Rightwrapper>
+                <Leftwrapper></Leftwrapper>
+                  <Rightwrapper>
                     <SignUpWrapper>
                         Don't have an account?
                         <TopRightButton>Sign Up</TopRightButton>
@@ -109,7 +107,7 @@ function LoginForm() {
                                     <input type="password" placeholder="Password" />
                                 </FormFieldWrapper>
                                 <div className="signin-content">
-                                    <Button>SIGNIN</Button>
+                                    <Button>SIGN IN</Button>
                                 </div>
                             </form>
                             </FormInnerWrapper>
