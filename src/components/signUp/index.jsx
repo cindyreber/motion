@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import logIn from "../../actions/index";
 import {
   MainWrapper,
   Leftwrapper,
@@ -15,20 +12,8 @@ import {
   Button,
 } from "../../layout/signIn";
 
-function LoginForm(props) {
+export const SignUp = (props) => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const history = useHistory();
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const credentials = {
-      email,
-      password,
-    };
-    props.logIn(credentials, history);
-  };
-
   return (
     <>
       <MainWrapper>
@@ -42,34 +27,25 @@ function LoginForm(props) {
         <Rightwrapper>
           <SignUpWrapper>
             Don't have an account?
-            <Link to="/signup">
-              <TopRightButton>Sign Up</TopRightButton>
+            <Link to="/">
+              <TopRightButton>Sign In</TopRightButton>
             </Link>
           </SignUpWrapper>
           <FormWrapper>
             <FormInnerWrapper>
-              <h2>Sign In</h2>
-              <form onSubmit={handleLogin}>
+              <h2>Sign Up</h2>
+              <form>
                 <FormFieldWrapper>
                   <i className="fas fa-user-circle"></i>
                   <input
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     type="text"
-                    placeholder="Username"
-                  />
-                </FormFieldWrapper>
-                <FormFieldWrapper>
-                  <i className="fas fa-lock"></i>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="Password"
+                    placeholder="Email"
                   />
                 </FormFieldWrapper>
                 <div className="signin-content">
-                  <Button>SIGNIN</Button>
+                  <Button>CONTINUE</Button>
                 </div>
               </form>
             </FormInnerWrapper>
@@ -78,6 +54,4 @@ function LoginForm(props) {
       </MainWrapper>
     </>
   );
-}
-
-export default connect(null, { logIn })(LoginForm);
+};
