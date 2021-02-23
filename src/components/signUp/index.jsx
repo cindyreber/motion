@@ -42,7 +42,9 @@ const SignUp = (props) => {
                 />
               </FormFieldWrapper>
               <div className="signin-content">
-                <Button>CONTINUE</Button>
+                <Link to="/congratulations">
+                  <Button>CONTINUE</Button>
+                </Link>
               </div>
             </form>
           </FormInnerWrapper>
