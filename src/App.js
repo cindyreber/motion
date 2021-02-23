@@ -12,9 +12,9 @@ export const App = () => {
       <BrowserRouter>
         <MainWrapper>
           <PurpleStyle />
-          <VerificationForm />
-          {/* <Route path="/" exact component={LoginForm} />
-          <Route path="/signup" exact component={SignUp} /> */}
+          {/* <VerificationForm /> */}
+          <Route path="/" exact component={LoginForm} />
+          <Route path="/signup" exact component={SignUp} />
         </MainWrapper>
       </BrowserRouter>
     </div>

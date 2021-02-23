@@ -32,7 +32,7 @@ export const SignUp = (props) => {
             <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
               <FormFieldWrapper>
-                <i className="fas fa-user-circle"></i>
+                <i className="fas fa-envelope"></i>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
