@@ -28,7 +28,6 @@ const Checkmark = styled.img`
 `;
 
 const Congratulations = (props) => {
-  console.log(props);
   return (
     <Rightwrapper>
       <FormWrapper>
@@ -37,7 +36,7 @@ const Congratulations = (props) => {
           <Checkmark src={checkmark} />
           <TextStyle>
             We've sent a confirmation code to your email <br></br>
-            {props.email}
+            {props.signupData.email}
           </TextStyle>
           <Button>CONTINUE</Button>
         </FormInnerWrapper>
@@ -46,10 +45,7 @@ const Congratulations = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state, "from mapStateToProps");
-  const test = state.emailSignUp.json();
-  console.log(test, "test");
-  return { email: state.emailSignUp };
+  return { signupData: state.email };
 };
 
 export default connect(mapStateToProps)(Congratulations);
