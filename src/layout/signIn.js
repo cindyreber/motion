@@ -11,10 +11,6 @@ export const Button = styled.button`
   background: linear-gradient(102deg, #c468ff, #6e91f6);
 `;
 
-export const Leftwrapper = styled.div`
-  width: 40vw;
-`;
-
 export const Rightwrapper = styled.div`
   width: 60vw;
 `;

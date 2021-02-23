@@ -33,55 +33,46 @@ function LoginForm(props) {
 
   return (
     <>
-      <MainWrapper>
-        <Leftwrapper>
-          {" "}
-          CSS animations with @keyframes aren't scoped to a single component but
-          you still don't want them to be global to avoid name collisions. This
-          is why we export a keyframes helper which will generate a unique
-          instance that you can use throughout your app:
-        </Leftwrapper>
-        <Rightwrapper>
-          <SignUpWrapper>
-            Don't have an account?
-            <Link to="/signup">
-              <TopRightButton>Sign Up</TopRightButton>
-            </Link>
-          </SignUpWrapper>
-          <FormWrapper>
-            <FormInnerWrapper>
-              <h2>Sign In</h2>
-              <form onSubmit={handleLogin}>
-                <FormFieldWrapper>
-                  <i className="fas fa-user-circle">
-                    <UserAvatar />
-                  </i>
-                  <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    type="text"
-                    placeholder="Username"
-                  />
-                </FormFieldWrapper>
-                <FormFieldWrapper>
-                  <i className="fas fa-lock">
-                    <Password />
-                  </i>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="Password"
-                  />
-                </FormFieldWrapper>
-                <div className="signin-content">
-                  <Button>SIGNIN</Button>
-                </div>
-              </form>
-            </FormInnerWrapper>
-          </FormWrapper>
-        </Rightwrapper>
-      </MainWrapper>
+      <Rightwrapper>
+        <SignUpWrapper>
+          Don't have an account?
+          <Link to="/signup">
+            <TopRightButton>Sign Up</TopRightButton>
+          </Link>
+        </SignUpWrapper>
+        <FormWrapper>
+          <FormInnerWrapper>
+            <h2>Sign In</h2>
+            <form onSubmit={handleLogin}>
+              <FormFieldWrapper>
+                <i className="fas fa-user-circle">
+                  <UserAvatar />
+                </i>
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  type="text"
+                  placeholder="Username"
+                />
+              </FormFieldWrapper>
+              <FormFieldWrapper>
+                <i className="fas fa-lock">
+                  <Password />
+                </i>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  type="password"
+                  placeholder="Password"
+                />
+              </FormFieldWrapper>
+              <div className="signin-content">
+                <Button>SIGNIN</Button>
+              </div>
+            </form>
+          </FormInnerWrapper>
+        </FormWrapper>
+      </Rightwrapper>
     </>
   );
 }
