@@ -4,6 +4,6 @@ import signupReducer from "./signupReducer";
 
 const rootReducer = combineReducers({
   loginData: loginReducer,
-  emailSignUp: signupReducer,
+  email: signupReducer,
 });
 export default rootReducer;
