@@ -1,4 +1,4 @@
-const signupReducer = (email = "", action) => {
+const signupReducer = (email = null, action) => {
   console.log(email, "email");
   console.log(action.payload, "action");
   if (action.type === "SEND_EMAIL") {
