@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import setSignUp from "../../actions/registration";
+import setSignUp from "../../store/actions/registration";
 import { connect } from "react-redux";
 import {
   Rightwrapper,
@@ -19,6 +19,7 @@ const SignUp = (props) => {
     e.preventDefault();
     props.setSignUp({ email });
   };
+
   return (
     <>
       <Rightwrapper>
@@ -42,9 +43,7 @@ const SignUp = (props) => {
                 />
               </FormFieldWrapper>
               <div className="signin-content">
-                <Link to="/congratulations">
-                  <Button>CONTINUE</Button>
-                </Link>
+                <Button>CONTINUE</Button>
               </div>
             </form>
           </FormInnerWrapper>
