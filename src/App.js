@@ -13,10 +13,12 @@ export const App = () => {
       <BrowserRouter>
         <MainWrapper>
           <PurpleStyle />
-          <Congratulations />
+          {/* <Congratulations /> */}
           {/* <VerificationForm /> */}
-          {/* <Route path="/" exact component={LoginForm} /> */}
+          <Route path="/" exact component={LoginForm} />
           <Route path="/signup" exact component={SignUp} />
+          <Route path="/congratulations" exact component={Congratulations} />
+          <Route path="/verification" exact component={VerificationForm} />
         </MainWrapper>
       </BrowserRouter>
     </div>
