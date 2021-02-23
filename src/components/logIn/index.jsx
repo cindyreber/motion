@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import logIn from "../../actions/index";
+import logIn from "../../actions/login";
 import {
   Rightwrapper,
   SignUpWrapper,
@@ -43,9 +43,7 @@ function LoginForm(props) {
             <h2>Sign In</h2>
             <form onSubmit={handleLogin}>
               <FormFieldWrapper>
-                <i className="fas fa-user-circle">
-                  <UserAvatar />
-                </i>
+                <i className="fas fa-user-circle">{/* <UserAvatar /> */}</i>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
@@ -54,9 +52,7 @@ function LoginForm(props) {
                 />
               </FormFieldWrapper>
               <FormFieldWrapper>
-                <i className="fas fa-lock">
-                  <Password />
-                </i>
+                <i className="fas fa-lock">{/* <Password /> */}</i>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
