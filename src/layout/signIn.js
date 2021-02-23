@@ -30,6 +30,7 @@ export const FormInnerWrapper = styled.div`
     font-size: 48px;
     font-weight: 300;
     padding-bottom: 30px;
+    font-weight: 400;
   }
 `;
 
