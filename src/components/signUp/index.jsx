@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import setSignUp from "../../actions/registration";
+import setSignUp from "../../store/actions/registration";
 import { connect } from "react-redux";
 import {
   Rightwrapper,

@@ -1,5 +1,5 @@
-import { registration } from "../api/registration";
-import history from "../history";
+import { registration } from "../../api/registration";
+import history from "../../history";
 
 const setSignUp = (email) => async (dispatch) => {
   const response = await registration(email);

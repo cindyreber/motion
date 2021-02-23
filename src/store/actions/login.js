@@ -1,4 +1,4 @@
-import { loginPost } from "../api/logInPost";
+import { loginPost } from "../../api/logInPost";
 
 const logIn = (credentials, history) => async (dispatch) => {
   console.log(credentials);
