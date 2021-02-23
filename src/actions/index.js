@@ -1,6 +1,9 @@
-import { loginPost } from "./api/logInPost";
+import { loginPost } from "../api/logInPost";
 
-export const logIn = (email, password) => async (dispatch) => {
-  const response = await loginPost({ email, password });
-  dispatch({ type: "SEND_LOGINDATA", payload: response });
+const logIn = (credentials, history) => async (dispatch) => {
+  console.log(credentials);
+  const response = await loginPost(credentials);
+  dispatch({ type: "SEND_LOGINDATA", payload: response.data.access });
 };
+
+export default logIn;
