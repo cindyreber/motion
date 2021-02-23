@@ -4,6 +4,7 @@ import { PurpleStyle } from "./components/LeftLogin";
 import { BrowserRouter, Route } from "react-router-dom";
 import { SignUp } from "./components/signUp";
 import { MainWrapper } from "./layout/signIn";
+import VerificationForm from "./components/verification";
 
 export const App = () => {
   return (
@@ -11,8 +12,9 @@ export const App = () => {
       <BrowserRouter>
         <MainWrapper>
           <PurpleStyle />
-          <Route path="/" exact component={LoginForm} />
-          <Route path="/signup" exact component={SignUp} />
+          <VerificationForm />
+          {/* <Route path="/" exact component={LoginForm} />
+          <Route path="/signup" exact component={SignUp} /> */}
         </MainWrapper>
       </BrowserRouter>
     </div>
