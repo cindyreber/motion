@@ -19,6 +19,7 @@ const SignUp = (props) => {
     e.preventDefault();
     props.setSignUp({ email });
   };
+
   return (
     <>
       <Rightwrapper>
@@ -42,9 +43,7 @@ const SignUp = (props) => {
                 />
               </FormFieldWrapper>
               <div className="signin-content">
-                <Link to="/congratulations">
-                  <Button>CONTINUE</Button>
-                </Link>
+                <Button>CONTINUE</Button>
               </div>
             </form>
           </FormInnerWrapper>
