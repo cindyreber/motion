@@ -2,7 +2,7 @@ import React from "react";
 import LoginForm from "./components/logIn";
 import { PurpleStyle } from "./components/LeftLogin";
 import { BrowserRouter, Route } from "react-router-dom";
-import { SignUp } from "./components/signUp";
+import SignUp from "./components/signUp";
 import { MainWrapper } from "./layout/signIn";
 import VerificationForm from "./components/verification";
 

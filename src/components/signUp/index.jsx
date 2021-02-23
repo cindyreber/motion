@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { registration } from "../../api/registration";
+import setSignUp from "../../actions/registration";
+import { connect } from "react-redux";
 import {
   Rightwrapper,
   SignUpWrapper,
@@ -11,12 +12,12 @@ import {
   Button,
 } from "../../layout/signIn";
 
-export const SignUp = (props) => {
+const SignUp = (props) => {
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    registration(email);
+    props.setSignUp({ email });
   };
   return (
     <>
@@ -50,3 +51,5 @@ export const SignUp = (props) => {
     </>
   );
 };
+
+export default connect(null, { setSignUp })(SignUp);
