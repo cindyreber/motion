@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   Rightwrapper,
   FormWrapper,
@@ -38,7 +39,9 @@ const Congratulations = (props) => {
             We've sent a confirmation code to your email <br></br>
             {props.signupData.email}
           </TextStyle>
-          <Button>CONTINUE</Button>
+          <Link to="/verification">
+            <Button>CONTINUE</Button>
+          </Link>
         </FormInnerWrapper>
       </FormWrapper>
     </Rightwrapper>
