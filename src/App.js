@@ -1,26 +1,24 @@
 import React from "react";
 import LoginForm from "./components/logIn";
-import { PurpleStyle } from "./components/LeftLogin";
 import { Router, Switch, Route } from "react-router-dom";
 import history from "./history";
 import SignUp from "./components/signUp";
 import { MainWrapper } from "./layout/signIn";
 import VerificationForm from "./components/verification";
 import Congratulations from "./components/congratulations";
-import NavBar from './components/navbar'
+import NavBar from "./components/navbar";
 
 export const App = () => {
   return (
     <div>
       <Router history={history}>
         <MainWrapper>
-          <PurpleStyle />
           <Switch>
-            <Route path="/" exact component={NavBar} />
-            <Route path="/test" exact component={LoginForm} />
+            <Route path="/" exact component={LoginForm} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/congratulations" exact component={Congratulations} />
             <Route path="/verification" exact component={VerificationForm} />
+            <Route path="/profile" exact component={NavBar} />
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
         </MainWrapper>

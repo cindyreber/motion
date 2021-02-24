@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
+  MainWrapper,
   Rightwrapper,
   FormWrapper,
   FormInnerWrapper,
   Button,
 } from "../../layout/signIn";
+import { PurpleStyle } from "../LeftLogin";
 import checkmark from "./checkmark.png";
 
 /* const CongratsHeadline = styled.h2`
@@ -30,21 +32,24 @@ const Checkmark = styled.img`
 
 const Congratulations = (props) => {
   return (
-    <Rightwrapper>
-      <FormWrapper>
-        <FormInnerWrapper>
-          <h2>Congratulations!</h2>
-          <Checkmark src={checkmark} />
-          <TextStyle>
-            We've sent a confirmation code to your email <br></br>
-            {props.signupData.email}
-          </TextStyle>
-          <Link to="/verification">
-            <Button>CONTINUE</Button>
-          </Link>
-        </FormInnerWrapper>
-      </FormWrapper>
-    </Rightwrapper>
+    <MainWrapper>
+      <PurpleStyle />
+      <Rightwrapper>
+        <FormWrapper>
+          <FormInnerWrapper>
+            <h2>Congratulations!</h2>
+            <Checkmark src={checkmark} />
+            <TextStyle>
+              We've sent a confirmation code to your email <br></br>
+              {props.signupData.email}
+            </TextStyle>
+            <Link to="/verification">
+              <Button>CONTINUE</Button>
+            </Link>
+          </FormInnerWrapper>
+        </FormWrapper>
+      </Rightwrapper>
+    </MainWrapper>
   );
 };
 const mapStateToProps = (state) => {
