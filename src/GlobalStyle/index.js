@@ -7,5 +7,6 @@ export const GlobalStyle =  createGlobalStyle`
     font-size: 14px;
     font-family: Helvetica;
     box-sizing: border-box;
+    background-color: #f8f8f9;
     }
 `;
