@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import setSignUp from "../../store/actions/registration";
 import { connect } from "react-redux";
+import { PurpleStyle } from "../LeftLogin";
 import {
+  MainWrapper,
   Rightwrapper,
   SignUpWrapper,
   TopRightButton,
@@ -22,33 +24,36 @@ const SignUp = (props) => {
 
   return (
     <>
-      <Rightwrapper>
-        <SignUpWrapper>
-          Don't have an account?
-          <Link to="/">
-            <TopRightButton>Sign In</TopRightButton>
-          </Link>
-        </SignUpWrapper>
-        <FormWrapper>
-          <FormInnerWrapper>
-            <h2>Sign Up</h2>
-            <form onSubmit={handleSubmit}>
-              <FormFieldWrapper>
-                <i className="fas fa-envelope"></i>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  type="text"
-                  placeholder="Email"
-                />
-              </FormFieldWrapper>
-              <div className="signin-content">
-                <Button>CONTINUE</Button>
-              </div>
-            </form>
-          </FormInnerWrapper>
-        </FormWrapper>
-      </Rightwrapper>
+      <MainWrapper>
+        <PurpleStyle />
+        <Rightwrapper>
+          <SignUpWrapper>
+            Don't have an account?
+            <Link to="/">
+              <TopRightButton>Sign In</TopRightButton>
+            </Link>
+          </SignUpWrapper>
+          <FormWrapper>
+            <FormInnerWrapper>
+              <h2>Sign Up</h2>
+              <form onSubmit={handleSubmit}>
+                <FormFieldWrapper>
+                  <i className="fas fa-envelope"></i>
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    type="text"
+                    placeholder="Email"
+                  />
+                </FormFieldWrapper>
+                <div className="signin-content">
+                  <Button>CONTINUE</Button>
+                </div>
+              </form>
+            </FormInnerWrapper>
+          </FormWrapper>
+        </Rightwrapper>
+      </MainWrapper>
     </>
   );
 };

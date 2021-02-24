@@ -3,7 +3,9 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import logIn from "../../store/actions/login";
+import { PurpleStyle } from "../LeftLogin";
 import {
+  MainWrapper,
   Rightwrapper,
   SignUpWrapper,
   TopRightButton,
@@ -12,8 +14,6 @@ import {
   FormFieldWrapper,
   Button,
 } from "../../layout/signIn";
-import UserAvatar from "../../layout/svgs/UserAvatar";
-import Password from "../../layout/svgs/Password";
 
 function LoginForm(props) {
   const [email, setEmail] = useState("");
@@ -31,42 +31,45 @@ function LoginForm(props) {
 
   return (
     <>
-      <Rightwrapper>
-        <SignUpWrapper>
-          Don't have an account?
-          <Link to="/signup">
-            <TopRightButton>Sign Up</TopRightButton>
-          </Link>
-        </SignUpWrapper>
-        <FormWrapper>
-          <FormInnerWrapper>
-            <h2>Sign In</h2>
-            <form onSubmit={handleLogin}>
-              <FormFieldWrapper>
-                <i className="fas fa-user-circle">{/* <UserAvatar /> */}</i>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  type="text"
-                  placeholder="Username"
-                />
-              </FormFieldWrapper>
-              <FormFieldWrapper>
-                <i className="fas fa-lock">{/* <Password /> */}</i>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  type="password"
-                  placeholder="Password"
-                />
-              </FormFieldWrapper>
-              <div className="signin-content">
-                <Button>SIGNIN</Button>
-              </div>
-            </form>
-          </FormInnerWrapper>
-        </FormWrapper>
-      </Rightwrapper>
+      <MainWrapper>
+        <PurpleStyle />
+        <Rightwrapper>
+          <SignUpWrapper>
+            Don't have an account?
+            <Link to="/signup">
+              <TopRightButton>Sign Up</TopRightButton>
+            </Link>
+          </SignUpWrapper>
+          <FormWrapper>
+            <FormInnerWrapper>
+              <h2>Sign In</h2>
+              <form onSubmit={handleLogin}>
+                <FormFieldWrapper>
+                  <i className="fas fa-user-circle">{/* <UserAvatar /> */}</i>
+                  <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    type="text"
+                    placeholder="Username"
+                  />
+                </FormFieldWrapper>
+                <FormFieldWrapper>
+                  <i className="fas fa-lock">{/* <Password /> */}</i>
+                  <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Password"
+                  />
+                </FormFieldWrapper>
+                <div className="signin-content">
+                  <Button>SIGNIN</Button>
+                </div>
+              </form>
+            </FormInnerWrapper>
+          </FormWrapper>
+        </Rightwrapper>
+      </MainWrapper>
     </>
   );
 }

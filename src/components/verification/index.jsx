@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Rightwrapper, FormWrapper } from "../../layout/signIn";
+import { MainWrapper, Rightwrapper, FormWrapper } from "../../layout/signIn";
 import {
   FormInnerWrapper,
   FormFieldContainer,
@@ -9,6 +9,7 @@ import {
   Button,
   Form,
 } from "../../layout/verificationStyle";
+import { PurpleStyle } from "../LeftLogin";
 import history from "../../history";
 import { verification } from "../../api/verification";
 
@@ -39,82 +40,85 @@ const VerificationForm = () => {
 
   return (
     <>
-      <Rightwrapper>
-        <FormWrapper>
-          <FormInnerWrapper>
-            <h2>Verification</h2>
-            <Form onSubmit={handleVerification}>
-              <div>
-                <FormFieldLongInput>
-                  <input
-                    onChange={(e) => setCode(e.target.value)}
-                    value={code}
-                    type="text"
-                    placeholder="Validation code"
-                  />
-                </FormFieldLongInput>
-              </div>
-              <FormFieldContainer>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    type="text"
-                    placeholder="Email"
-                  />
-                </FormFieldWrapper>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                    type="text"
-                    placeholder="Username"
-                  />
-                </FormFieldWrapper>
-              </FormFieldContainer>
-              <FormFieldContainer>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setFirstName(e.target.value)}
-                    value={first_name}
-                    type="text"
-                    placeholder="First Name"
-                  />
-                </FormFieldWrapper>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setLastName(e.target.value)}
-                    value={last_name}
-                    type="text"
-                    placeholder="Last Name"
-                  />
-                </FormFieldWrapper>
-              </FormFieldContainer>
-              <FormFieldContainer>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="text"
-                    placeholder="Password"
-                  />
-                </FormFieldWrapper>
-                <FormFieldWrapper>
-                  <input
-                    onChange={(e) => setPassordRepeat(e.target.value)}
-                    value={password_repeat}
-                    type="text"
-                    placeholder="Password Repeat"
-                  />
-                </FormFieldWrapper>
-              </FormFieldContainer>
-              <ButtonWrapper>
-                <Button>COMPLETE</Button>
-              </ButtonWrapper>
-            </Form>
-          </FormInnerWrapper>
-        </FormWrapper>
-      </Rightwrapper>
+      <MainWrapper>
+        <PurpleStyle />
+        <Rightwrapper>
+          <FormWrapper>
+            <FormInnerWrapper>
+              <h2>Verification</h2>
+              <Form onSubmit={handleVerification}>
+                <div>
+                  <FormFieldLongInput>
+                    <input
+                      onChange={(e) => setCode(e.target.value)}
+                      value={code}
+                      type="text"
+                      placeholder="Validation code"
+                    />
+                  </FormFieldLongInput>
+                </div>
+                <FormFieldContainer>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                      type="text"
+                      placeholder="Email"
+                    />
+                  </FormFieldWrapper>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                      type="text"
+                      placeholder="Username"
+                    />
+                  </FormFieldWrapper>
+                </FormFieldContainer>
+                <FormFieldContainer>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setFirstName(e.target.value)}
+                      value={first_name}
+                      type="text"
+                      placeholder="First Name"
+                    />
+                  </FormFieldWrapper>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setLastName(e.target.value)}
+                      value={last_name}
+                      type="text"
+                      placeholder="Last Name"
+                    />
+                  </FormFieldWrapper>
+                </FormFieldContainer>
+                <FormFieldContainer>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      type="text"
+                      placeholder="Password"
+                    />
+                  </FormFieldWrapper>
+                  <FormFieldWrapper>
+                    <input
+                      onChange={(e) => setPassordRepeat(e.target.value)}
+                      value={password_repeat}
+                      type="text"
+                      placeholder="Password Repeat"
+                    />
+                  </FormFieldWrapper>
+                </FormFieldContainer>
+                <ButtonWrapper>
+                  <Button>COMPLETE</Button>
+                </ButtonWrapper>
+              </Form>
+            </FormInnerWrapper>
+          </FormWrapper>
+        </Rightwrapper>
+      </MainWrapper>
     </>
   );
 };
