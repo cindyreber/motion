@@ -7,6 +7,7 @@ import SignUp from "./components/signUp";
 import { MainWrapper } from "./layout/signIn";
 import VerificationForm from "./components/verification";
 import Congratulations from "./components/congratulations";
+import NavBar from './components/navbar'
 
 export const App = () => {
   return (
@@ -15,7 +16,8 @@ export const App = () => {
         <MainWrapper>
           <PurpleStyle />
           <Switch>
-            <Route path="/" exact component={LoginForm} />
+            <Route path="/" exact component={NavBar} />
+            <Route path="/test" exact component={LoginForm} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/congratulations" exact component={Congratulations} />
             <Route path="/verification" exact component={VerificationForm} />
