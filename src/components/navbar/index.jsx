@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
-import ApiProfile from "../../api/apiProfile";
+import { apiProfile } from "../../api/apiProfile";
+import { getPostsApi } from "../../api/apiPosts";
 import styled from "styled-components";
 import motionLogo from "../LeftLogin/assets/images/logo.png";
 import postsLogo from "../LeftLogin/assets/images/posts_logo.png";
@@ -83,54 +84,6 @@ const Avatar = styled.img`
   padding: 0 30px;
 `;
 
-// const SearchContainer = styled.div`
-// margin: 0 auto;
-//  width: 100%;
-//  max-width: 1200px;
-//  height: 80px;
-//  display: flex;
-//  justify-content: space-between;
-//  align-items: center;
-//  border-bottom: 1px solid #f5f5f5;
-// `;
-
-// const SearchBar = styled.div`
-//  display: flex;
-//  align-items: center;
-
-// `;
-
-// const InputField = styled.input`
-// border: none;
-// padding: 20px;
-// background: transparent;
-// margin-left: 20px;
-
-// :focus {
-//     outline: none !important;
-//     box-shadow: 0 0 10px #b192fe;
-//     //border:1px solid #b192fe;
-// }`;
-
-// const Magnifyer = styled.img`
-// padding: 2px;
-// `;
-
-// const RightButtonContainer = styled.div`
-//  display: flex;
-// `;
-
-// const RightButton = styled.p`
-//     margin: 0 20px;
-//     color: grey;
-//     padding: 30px 0;
-
-//     :hover {
-//         border-bottom: 2px solid black;
-//         color: black;
-//     }
-// `;
-
 const DropdownList = styled.div`
   position: absolute;
   top: 30px;
@@ -196,18 +149,27 @@ const NavItem = (props) => {
 const NavBar = () => {
   const user = useSelector((state) => state.userData);
   const dispatch = useDispatch();
-
   useEffect(async () => {
     if (localStorage.getItem("token")) {
-      const response = await ApiProfile();
+      const response = await apiProfile();
       dispatch(ProfileData(response));
     } else {
       history.push("/");
     }
   }, []);
 
-  const history = useHistory();
+  // api call working
+  const handleClick = () => {
+    // history.push('/friends')             redirect to the future friends cards
+    console.log("inside");
+    const asyncCall = async () => {
+      const res = await getPostsApi("friends/");
+      console.log(res, "res from navbar friends call api");
+    };
+    asyncCall();
+  };
 
+  const history = useHistory();
   const routeChange = () => {
     let path = `/feed`;
     history.push(path);
@@ -229,7 +191,7 @@ const NavBar = () => {
 
           <FriendsLogoContainer>
             <IconFriends />
-            <p>Find Friends</p>
+            <p onClick={handleClick}>Find Friends</p>
           </FriendsLogoContainer>
         </LeftItems>
 

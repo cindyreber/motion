@@ -18,6 +18,27 @@ export const createPostApi = async (data, URL) => {
   if (!token) return new Error("Log in please");
   let url = `${BASE_URL}${URL}`;
   const response = await axios.post(url, { content: data.content }, config);
-  console.log(response, "from api");
   return response.data;
+};
+
+// working. Getting status 200 without any data. Check what they mean with user. Username?
+export const searchApi = async (term) => {
+  let config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+    params: term,
+  };
+  if (!token) return new Error("Log in please");
+  const response = await axios.get(
+    `${BASE_URL}posts/?search=<str:${term}>`,
+    config
+  );
+  console.log(response, "response from search");
+  //   return response.data;
+};
+
+export const deletePost = async (id) => {
+  const response = await axios.get(`${BASE_URL}posts/${id}/`, config);
+  console.log(response, "response from delete api");
 };

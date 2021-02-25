@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ import {
 } from "../../layout/signIn";
 import { PurpleStyle } from "../LeftLogin";
 import checkmark from "./checkmark.png";
+import { findRenderedComponentWithType } from "react-dom/test-utils";
 
 /* const CongratsHeadline = styled.h2`
     font-size: 48px;
