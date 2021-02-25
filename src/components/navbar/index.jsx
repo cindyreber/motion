@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
@@ -8,7 +8,8 @@ import motionLogo from "../LeftLogin/assets/images/logo.png";
 import postsLogo from "../LeftLogin/assets/images/posts_logo.png";
 import IconFriends from "../../layout/svgs/IconFriends";
 import Bell from "../../layout/svgs/Bell";
-import Menu from "../../layout/svgs/Menu";
+//import Menu from "../../layout/svgs/Menu";
+import { ReactComponent as MenuIcon } from "../LeftLogin/assets/svgs/menu.svg";
 // import search from "../LeftLogin/assets/svgs/search_icon.svg"
 import jennifer from "../LeftLogin/assets/images/users/jennifer.png";
 
@@ -131,6 +132,68 @@ padding: 0 30px;
 //     }
 // `;
 
+const DropdownList = styled.div`
+position: absolute;
+top: 30px;
+right: 0;
+background-color: #f5f5f5;
+border-radius: 5px;
+`;
+
+const ListStyle = styled.li`
+    list-style: none;
+    padding: 10px;
+    width: 80px;
+    font-size: 14px;
+
+    :hover {
+        background-color: white;
+    }
+`;
+
+const DropdownMenu = () => {
+    
+    const history = useHistory();
+    
+    const routeChangeToProfile = () => {
+    let path = `/profile`;
+    history.push(path);
+  };
+
+  const routeChangeLogout = () => {
+    let path = `/`;
+    history.push(path);
+  };
+    
+    return (
+        <DropdownList className="dropdown">
+            <ul>
+                <ListStyle onClick={routeChangeToProfile}><i className="fas fa-user-alt"></i>Profile</ListStyle>
+                <ListStyle onClick={routeChangeLogout}>Logout</ListStyle>
+            </ul>
+        </DropdownList>
+)
+};
+
+const NavIcon = styled.div`
+    position: relative;
+`;
+
+const NavItem = (props) => {
+const [open, setOpen] = useState(false);
+
+return (
+    <NavIcon className="nav-item">
+        <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+            {props.icon}
+        </a>
+
+        {open && props.children}
+    </NavIcon>
+);
+}
+
+
 const NavBar = () => {
   const user = useSelector((state) => state.userData);
   const dispatch = useDispatch();
@@ -148,6 +211,8 @@ const NavBar = () => {
     let path = `/feed`;
     history.push(path);
   };
+
+
 
   return (
       <Wrapper>
@@ -172,7 +237,12 @@ const NavBar = () => {
             <RightItems>
                 <Bell />
                 <Avatar src={jennifer} alt="jennifer" />
-                <Menu />
+                <NavItem icon={<MenuIcon/>}>
+                    <DropdownMenu>
+
+                    </DropdownMenu>
+                </NavItem>    
+                
             </RightItems>
         </NavContainer>
 
