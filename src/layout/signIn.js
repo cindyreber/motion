@@ -12,7 +12,7 @@ export const Button = styled.button`
 `;
 
 export const Rightwrapper = styled.div`
-  width: 60vw;
+  width: 70vw;
 `;
 
 export const FormWrapper = styled.div`
