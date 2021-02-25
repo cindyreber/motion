@@ -3,10 +3,12 @@ import profileData from "./profileDataReducer";
 import loginReducer from "./loginReducer";
 import signupReducer from "./signupReducer";
 import profileDataReducer from "./profileDataReducer";
+import postsReducer from "./postsReducer";
 
 const rootReducer = combineReducers({
   loginData: loginReducer,
   email: signupReducer,
-  userData: profileDataReducer
+  userData: profileDataReducer,
+  posts: postsReducer,
 });
 export default rootReducer;

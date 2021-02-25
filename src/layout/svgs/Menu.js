@@ -13,9 +13,9 @@ const Menu = () => {
       <g
         id="App"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         opacity="0.300000012"
       >
         <g
