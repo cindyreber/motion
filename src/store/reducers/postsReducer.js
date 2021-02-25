@@ -1,5 +1,5 @@
 const initialState = {
-  posts: [],
+  friends: [],
 };
 
 const postsReducer = (state = initialState, action) => {
@@ -7,7 +7,7 @@ const postsReducer = (state = initialState, action) => {
     case "FRIENDS_POSTS":
       return {
         ...state,
-        posts: action.payload,
+        friends: action.payload,
       };
     default:
       return state;

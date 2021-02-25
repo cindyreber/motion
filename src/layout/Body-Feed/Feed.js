@@ -16,7 +16,7 @@ import {
 import { getPostsApi } from "../../api/apiPosts";
 
 const Feed = () => {
-  const posts = useSelector((state) => state.posts.posts);
+  const posts = useSelector((state) => state.posts.friends);
   console.log(posts, "posts before return");
   const dispatch = useDispatch();
   useEffect(async () => {
