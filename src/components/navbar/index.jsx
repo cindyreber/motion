@@ -12,7 +12,6 @@ import Menu from "../../layout/svgs/Menu";
 import history from "../../history";
 import { ReactComponent as MenuIcon } from "../LeftLogin/assets/svgs/menu.svg";
 import jennifer from "../LeftLogin/assets/images/users/jennifer.png";
-import HandleLogout from "../logout/index"
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -47,6 +46,7 @@ const PostsLogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 50px;
+  cursor: pointer;
 
   :hover {
     border-bottom: 2px solid #b192fe;
@@ -62,6 +62,8 @@ const PostsLogo = styled.img`
 const FriendsLogoContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
   & p {
     padding: 10px;
   }
@@ -98,6 +100,7 @@ const ListStyle = styled.li`
   width: 80px;
   font-size: 14px;
   margin: 5px 0;
+  cursor: pointer;
 
   :hover {
     background-color: white;
@@ -133,7 +136,7 @@ const DropdownMenu = () => {
         <ListStyle onClick={routeChangeToProfile}>
           <Icons className="fas fa-user-alt"></Icons>Profile
         </ListStyle>
-        <ListStyle onClick={routeChangeLogout}> {/* handleLogout */}
+        <ListStyle onClick={routeChangeLogout}> 
             <Icons className="fas fa-sign-out-alt"></Icons>Logout
         </ListStyle>
       </ListContainer>
