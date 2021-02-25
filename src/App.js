@@ -7,6 +7,8 @@ import { MainWrapper } from "./layout/signIn";
 import VerificationForm from "./components/verification";
 import Congratulations from "./components/congratulations";
 import Feed from "./layout/Body-Feed/Feed";
+import Profile from "./layout/Profile/profile";
+import DropdownMenu from './components/dropdownmenu/index'
 
 export const App = () => {
   return (
@@ -19,6 +21,10 @@ export const App = () => {
             <Route path="/signup" exact component={SignUp} />
             <Route path="/congratulations" exact component={Congratulations} />
             <Route path="/verification" exact component={VerificationForm} />
+            <Route path="/profile" exact component={Profile}/>
+            <Route path="/dropdown" exact component={DropdownMenu}/>
+
+
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
         </MainWrapper>

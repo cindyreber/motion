@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
 import ApiProfile from "../../api/apiProfile";
 import styled from "styled-components";
@@ -9,7 +10,7 @@ import IconFriends from "../../layout/svgs/IconFriends";
 import Bell from "../../layout/svgs/Bell";
 import Menu from "../../layout/svgs/Menu";
 import history from "../../history";
-// import search from "../LeftLogin/assets/svgs/search_icon.svg"
+import { ReactComponent as MenuIcon } from "../LeftLogin/assets/svgs/menu.svg";
 import jennifer from "../LeftLogin/assets/images/users/jennifer.png";
 
 const Wrapper = styled.div`
@@ -82,6 +83,116 @@ const Avatar = styled.img`
   padding: 0 30px;
 `;
 
+// const SearchContainer = styled.div`
+// margin: 0 auto;
+//  width: 100%;
+//  max-width: 1200px;
+//  height: 80px;
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  border-bottom: 1px solid #f5f5f5;
+// `;
+
+// const SearchBar = styled.div`
+//  display: flex;
+//  align-items: center;
+
+// `;
+
+// const InputField = styled.input`
+// border: none;
+// padding: 20px;
+// background: transparent;
+// margin-left: 20px;
+
+// :focus {
+//     outline: none !important;
+//     box-shadow: 0 0 10px #b192fe;
+//     //border:1px solid #b192fe;
+// }`;
+
+// const Magnifyer = styled.img`
+// padding: 2px;
+// `;
+
+// const RightButtonContainer = styled.div`
+//  display: flex;
+// `;
+
+// const RightButton = styled.p`
+//     margin: 0 20px;
+//     color: grey;
+//     padding: 30px 0;
+
+//     :hover {
+//         border-bottom: 2px solid black;
+//         color: black;
+//     }
+// `;
+
+const DropdownList = styled.div`
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+`;
+
+const ListStyle = styled.li`
+  list-style: none;
+  padding: 10px;
+  width: 80px;
+  font-size: 14px;
+
+  :hover {
+    background-color: white;
+  }
+`;
+
+const DropdownMenu = () => {
+  const history = useHistory();
+
+  const routeChangeToProfile = () => {
+    let path = `/profile`;
+    history.push(path);
+  };
+
+  const routeChangeLogout = () => {
+    let path = `/`;
+    history.push(path);
+  };
+
+  return (
+    <DropdownList className="dropdown">
+      <ul>
+        <ListStyle onClick={routeChangeToProfile}>
+          <i className="fas fa-user-alt"></i>Profile
+        </ListStyle>
+        <ListStyle onClick={routeChangeLogout}>Logout</ListStyle>
+      </ul>
+    </DropdownList>
+  );
+};
+
+const NavIcon = styled.div`
+  position: relative;
+`;
+
+const NavItem = (props) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <NavIcon className="nav-item">
+      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+        {props.icon}
+      </a>
+
+      {open && props.children}
+    </NavIcon>
+  );
+};
+
 const NavBar = () => {
   const user = useSelector((state) => state.userData);
   const dispatch = useDispatch();
@@ -95,11 +206,18 @@ const NavBar = () => {
     }
   }, []);
 
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = `/feed`;
+    history.push(path);
+  };
+
   return (
     <Wrapper>
       <NavContainer>
         <LeftItems>
-          <MotionLogoContainer>
+          <MotionLogoContainer onClick={routeChange}>
             <MotionLogo src={motionLogo} alt="motionlogo" />
             <h3>Motion</h3>
           </MotionLogoContainer>
@@ -118,9 +236,24 @@ const NavBar = () => {
         <RightItems>
           <Bell />
           <Avatar src={jennifer} alt="jennifer" />
-          <Menu />
+          <NavItem icon={<MenuIcon />}>
+            <DropdownMenu></DropdownMenu>
+          </NavItem>
         </RightItems>
       </NavContainer>
+
+      {/* <SearchContainer>
+            <SearchBar>
+                <Magnifyer src={search}/>
+                <InputField type="text" placeholder="Search posts..."></InputField>
+            </SearchBar>
+
+            <RightButtonContainer>
+                <RightButton>Liked</RightButton>
+                <RightButton>Friends</RightButton>
+                <RightButton>Follow</RightButton>
+            </RightButtonContainer>
+        </SearchContainer> */}
     </Wrapper>
   );
 };
