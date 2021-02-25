@@ -71,13 +71,19 @@ const Feed = () => {
                       <div>
                         {post.images.length ? (
                           post.images.map(({ image }) => (
-                            <img src={image} alt="" />
+                            <img className="postImage" src={image} alt="" />
                           ))
                         ) : (
+                            <>
                           <img
                             src="https://source.unsplash.com/random/240x240"
                             alt=""
                           />
+                          <img
+                            src="https://source.unsplash.com/user/erondu/240x240"
+                            alt=""
+                          />
+                          </>
                         )}
                       </div>
                     </div>
@@ -85,14 +91,14 @@ const Feed = () => {
                       <div className="social-media-buttons">
                         <div className="like">
                           <i className="fas fa-heart"></i>
-                          <p>Like</p>
+                          <p>{post.user.amount_of_likes}Like</p>
                         </div>
                         <div className="share">
                           <i className="fas fa-share"></i>
                           <p>Share</p>
                         </div>
                       </div>
-                      <p> 10 likes</p>
+                      <p> {post.user.amount_of_likes} likes</p>
                     </SocialMedia>
                   </Post>
                 </Content>
