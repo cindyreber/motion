@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector, connect } from "react-redux";
 import postsFriends from "../../store/actions/postsFriends";
+import createPost from "../../store/actions/createPost";
 import Navbar from "../../components/navbar/index";
 import Searchbar from "../../components/searchbar/index";
 import {
@@ -16,13 +17,23 @@ import {
 import { getPostsApi } from "../../api/apiPosts";
 
 const Feed = () => {
+  const [newPost, setNewPost] = useState("");
   const posts = useSelector((state) => state.posts.friends);
-  console.log(posts, "posts before return");
   const dispatch = useDispatch();
+
   useEffect(async () => {
     const res = await getPostsApi("posts/");
     dispatch(postsFriends(res));
   }, []);
+
+  const handleChange = (e) => {
+    const val = e.target.value;
+    setNewPost(val);
+  };
+  const handleCreatePost = (e) => {
+    e.preventDefault();
+    dispatch(createPost({ content: newPost, images: [], shared: "" }));
+  };
   return (
     <Main>
       <Nav>
@@ -35,14 +46,21 @@ const Feed = () => {
         <Content>
           <Status>
             <img src="https://unsplash.it/200/201" alt="" />
-            <input type="text" placeholder="What’s on your mind, Jennifer?" />
-            <i className="far fa-paper-plane"></i>
+            <form onSubmit={handleCreatePost}>
+              <input
+                onChange={handleChange}
+                value={newPost}
+                type="text"
+                placeholder="What’s on your mind, Jennifer?"
+              />
+              <i className="far fa-paper-plane"></i>
+            </form>
           </Status>
         </Content>
         {posts.length
           ? posts.map((post) => {
               return (
-                <Content>
+                <Content key={post.id}>
                   <Post>
                     <div className="posts-details">
                       <div className="user-detials">
@@ -70,8 +88,8 @@ const Feed = () => {
                     <div className="pictures">
                       <div>
                         {post.images.length ? (
-                          post.images.map(({ image }) => (
-                            <img src={image} alt="" />
+                          post.images.map(({ image }, index) => (
+                            <img src={image} key={index} alt="pics" />
                           ))
                         ) : (
                           <img
@@ -103,5 +121,4 @@ const Feed = () => {
     </Main>
   );
 };
-
-export default Feed;
+export default connect(null, { postsFriends })(Feed);
