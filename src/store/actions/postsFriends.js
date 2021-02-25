@@ -1,6 +1,6 @@
 const postsAction = (posts) => {
   return {
-    type: "FRIENDS_POSTS",
+    type: "LIST_POSTS",
     payload: posts,
   };
 };
