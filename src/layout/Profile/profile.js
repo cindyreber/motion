@@ -87,6 +87,7 @@ const DataContainer = styled.div`
 
 const Data = styled.div`
     padding: 15px;
+    cursor: pointer;
 
     :hover {
         border-bottom: 2px solid #b192fe;
