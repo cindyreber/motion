@@ -15,6 +15,7 @@ import {
   SocialMedia,
 } from "../feedStyle";
 import { getPostsApi } from "../../api/apiPosts";
+import { deletePost } from "../../api/apiPosts";
 
 const Feed = () => {
   const [newPost, setNewPost] = useState("");
@@ -26,9 +27,19 @@ const Feed = () => {
     dispatch(postsFriends(res));
   }, []);
 
-  const handleChange = (e) => {
+  const handleChangePost = (e) => {
     const val = e.target.value;
     setNewPost(val);
+  };
+
+  // not working ask TAs
+  const handleDelete = () => {
+    console.log("handleeee");
+    const asyncCall = async () => {
+      const res = await deletePost("536");
+      console.log(res);
+    };
+    asyncCall();
   };
   const handleCreatePost = (e) => {
     e.preventDefault();
@@ -48,7 +59,7 @@ const Feed = () => {
             <img src="https://unsplash.it/200/201" alt="" />
             <form onSubmit={handleCreatePost}>
               <input
-                onChange={handleChange}
+                onChange={handleChangePost}
                 value={newPost}
                 type="text"
                 placeholder="What’s on your mind, Jennifer?"
@@ -78,7 +89,10 @@ const Feed = () => {
                         </div>
                       </div>
                       <div className="more-details">
-                        <i className="fas fa-ellipsis-v"></i>
+                        <i
+                          onClick={handleDelete}
+                          className="fas fa-ellipsis-v"
+                        ></i>
                       </div>
                     </div>
 
@@ -88,20 +102,24 @@ const Feed = () => {
                     <div className="pictures">
                       <div>
                         {post.images.length ? (
-
                           post.images.map(({ image }, index) => (
-                            <img className="postImage" src={image} key={index} alt="pics" />
+                            <img
+                              className="postImage"
+                              src={image}
+                              key={index}
+                              alt="pics"
+                            />
                           ))
                         ) : (
-                            <>
-                          <img
-                            src="https://source.unsplash.com/random/240x240"
-                            alt=""
-                          />
-                          <img
-                            src="https://source.unsplash.com/user/erondu/240x240"
-                            alt=""
-                          />
+                          <>
+                            <img
+                              src="https://source.unsplash.com/random/240x240"
+                              alt=""
+                            />
+                            <img
+                              src="https://source.unsplash.com/user/erondu/240x240"
+                              alt=""
+                            />
                           </>
                         )}
                       </div>
