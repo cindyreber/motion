@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
 import ApiProfile from "../../api/apiProfile";
 import styled from "styled-components";
@@ -10,6 +11,7 @@ import Bell from "../../layout/svgs/Bell";
 import Menu from "../../layout/svgs/Menu";
 // import search from "../LeftLogin/assets/svgs/search_icon.svg"
 import jennifer from "../LeftLogin/assets/images/users/jennifer.png";
+
 
 const Wrapper = styled.div`
 width: 100vw;
@@ -140,11 +142,18 @@ const NavBar = () => {
     dispatch(ProfileData(response));
   }, []);
 
+    const history = useHistory();
+    
+    const routeChange = () => {
+    let path = `/feed`;
+    history.push(path);
+  };
+
   return (
       <Wrapper>
         <NavContainer>
             <LeftItems>
-            <MotionLogoContainer>
+            <MotionLogoContainer onClick={routeChange}>
                 <MotionLogo src={motionLogo} alt="motionlogo" />
                 <h3>Motion</h3>
             </MotionLogoContainer>
