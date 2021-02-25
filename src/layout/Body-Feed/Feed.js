@@ -66,11 +66,11 @@ const Status = styled.div`
         border: none;
         font-size: 16px;
         color: black;
-        opacity: 0.5;
-        & :focus {
+        opacity: 0.5;  
+      }
+      & input:focus {
           outline: none;
         } 
-      }
         
 `
 const SocialMedia = styled.div `
