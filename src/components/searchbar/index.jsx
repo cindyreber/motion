@@ -30,8 +30,9 @@ width: 40vw;
 
 :focus {
     outline: none !important;
-    box-shadow: 0 0 10px #b192fe;
+    /* box-shadow: 0 0 10px #b192fe; */
     //border:1px solid #b192fe;
+    border-bottom: 1px solid #b192fe;
 }`;
 
 const Magnifyer = styled.img`

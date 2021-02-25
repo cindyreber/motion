@@ -63,10 +63,11 @@ export const Status = styled.div`
     font-size: 16px;
     color: black;
     opacity: 0.5;
-    & :focus {
+    :focus {
       outline: none;
     }
   }
+  
 `;
 export const SocialMedia = styled.div`
   display: flex;
@@ -138,6 +139,10 @@ export const Post = styled.div`
     justify-content: center;
     align-items: center;
   }
+  & .postImage{
+    width: 200px;
+    height: 200px;
+  }
   & .pictures > img {
     margin: 10px;
     display: block;
@@ -145,8 +150,7 @@ export const Post = styled.div`
   }
   & .userpost-time {
     margin-left: 10px;
-    & p:nth-child(2) {
-      // need fix the it
+     p:nth-child(2) {
       font-size: 14px;
       color: #d8d8d8;
     }
