@@ -26,8 +26,8 @@ const TextStyle = styled.p`
 `;
 
 const Checkmark = styled.img`
-  width: 10%;
-  height: 10%;
+  width: 100px;
+  height: 100px;
 `;
 
 const Congratulations = (props) => {

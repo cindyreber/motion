@@ -12,6 +12,7 @@ import Menu from "../../layout/svgs/Menu";
 import history from "../../history";
 import { ReactComponent as MenuIcon } from "../LeftLogin/assets/svgs/menu.svg";
 import jennifer from "../LeftLogin/assets/images/users/jennifer.png";
+import HandleLogout from "../logout/index"
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -83,54 +84,6 @@ const Avatar = styled.img`
   padding: 0 30px;
 `;
 
-// const SearchContainer = styled.div`
-// margin: 0 auto;
-//  width: 100%;
-//  max-width: 1200px;
-//  height: 80px;
-//  display: flex;
-//  justify-content: space-between;
-//  align-items: center;
-//  border-bottom: 1px solid #f5f5f5;
-// `;
-
-// const SearchBar = styled.div`
-//  display: flex;
-//  align-items: center;
-
-// `;
-
-// const InputField = styled.input`
-// border: none;
-// padding: 20px;
-// background: transparent;
-// margin-left: 20px;
-
-// :focus {
-//     outline: none !important;
-//     box-shadow: 0 0 10px #b192fe;
-//     //border:1px solid #b192fe;
-// }`;
-
-// const Magnifyer = styled.img`
-// padding: 2px;
-// `;
-
-// const RightButtonContainer = styled.div`
-//  display: flex;
-// `;
-
-// const RightButton = styled.p`
-//     margin: 0 20px;
-//     color: grey;
-//     padding: 30px 0;
-
-//     :hover {
-//         border-bottom: 2px solid black;
-//         color: black;
-//     }
-// `;
-
 const DropdownList = styled.div`
   position: absolute;
   top: 30px;
@@ -141,13 +94,23 @@ const DropdownList = styled.div`
 
 const ListStyle = styled.li`
   list-style: none;
-  padding: 10px;
+  padding: 15px 30px;
   width: 80px;
   font-size: 14px;
+  margin: 5px 0;
 
   :hover {
     background-color: white;
   }
+`;
+
+const Icons = styled.i`
+padding-right: 20px;
+`;
+
+const ListContainer = styled.ul`
+margin: 0;
+padding: 0;
 `;
 
 const DropdownMenu = () => {
@@ -160,17 +123,20 @@ const DropdownMenu = () => {
 
   const routeChangeLogout = () => {
     let path = `/`;
+    localStorage.clear();
     history.push(path);
   };
 
   return (
     <DropdownList className="dropdown">
-      <ul>
+      <ListContainer>
         <ListStyle onClick={routeChangeToProfile}>
-          <i className="fas fa-user-alt"></i>Profile
+          <Icons className="fas fa-user-alt"></Icons>Profile
         </ListStyle>
-        <ListStyle onClick={routeChangeLogout}>Logout</ListStyle>
-      </ul>
+        <ListStyle onClick={routeChangeLogout}> {/* handleLogout */}
+            <Icons className="fas fa-sign-out-alt"></Icons>Logout
+        </ListStyle>
+      </ListContainer>
     </DropdownList>
   );
 };
@@ -241,19 +207,6 @@ const NavBar = () => {
           </NavItem>
         </RightItems>
       </NavContainer>
-
-      {/* <SearchContainer>
-            <SearchBar>
-                <Magnifyer src={search}/>
-                <InputField type="text" placeholder="Search posts..."></InputField>
-            </SearchBar>
-
-            <RightButtonContainer>
-                <RightButton>Liked</RightButton>
-                <RightButton>Friends</RightButton>
-                <RightButton>Follow</RightButton>
-            </RightButtonContainer>
-        </SearchContainer> */}
     </Wrapper>
   );
 };
