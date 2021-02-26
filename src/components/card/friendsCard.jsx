@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
-import Navbar from "../navbar/index"
+import Navbar from "../navbar/index";
+import Profile from "../../layout/Profile/profile"
 
 const MainContent = styled.div `
 min-height: 100vh; 
-`
+`;
 const Nav =  styled.div `
-margin-bottom: 30px;
 box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.36);
+`;
+
+const ProfileWrap = styled.div `
+   margin-top: 50px;
 `
 
 const CardSection = styled.section `
@@ -106,12 +110,12 @@ function FriendsCard() {
     return (
       
   <>
+ 
   <MainContent> 
-
-     <Nav>
+      <Nav>
          <Navbar />
-     </Nav>   
-     
+     </Nav>
+     <Profile />
     <CardSection>
     <Card>
         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80" alt="bugra.work" />
