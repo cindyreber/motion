@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
-import ApiProfile from "../../api/apiProfile";
+import { apiProfile } from "../../api/apiProfile";
+import { getPostsApi } from "../../api/apiPosts";
 import styled from "styled-components";
 import motionLogo from "../LeftLogin/assets/images/logo.png";
 import postsLogo from "../LeftLogin/assets/images/posts_logo.png";
@@ -165,18 +166,27 @@ const NavItem = (props) => {
 const NavBar = () => {
   const user = useSelector((state) => state.userData);
   const dispatch = useDispatch();
-
   useEffect(async () => {
     if (localStorage.getItem("token")) {
-      const response = await ApiProfile();
+      const response = await apiProfile();
       dispatch(ProfileData(response));
     } else {
       history.push("/");
     }
   }, []);
 
-  const history = useHistory();
+  // api call working
+  const handleClick = () => {
+    // history.push('/friends')             redirect to the future friends cards
+    console.log("inside");
+    const asyncCall = async () => {
+      const res = await getPostsApi("friends/");
+      console.log(res, "res from navbar friends call api");
+    };
+    asyncCall();
+  };
 
+  const history = useHistory();
   const routeChange = () => {
     let path = `/feed`;
     history.push(path);
@@ -198,7 +208,7 @@ const NavBar = () => {
 
           <FriendsLogoContainer>
             <IconFriends />
-            <p>Find Friends</p>
+            <p onClick={handleClick}>Find Friends</p>
           </FriendsLogoContainer>
         </LeftItems>
 
