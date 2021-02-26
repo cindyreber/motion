@@ -13,6 +13,8 @@ import {
   Status,
   Post,
   SocialMedia,
+  FormStyle,
+  PostButton
 } from "../feedStyle";
 import { getPostsApi } from "../../api/apiPosts";
 import { deletePost } from "../../api/apiPosts";
@@ -64,15 +66,18 @@ const Feed = () => {
         <Content>
           <Status>
             <img src="https://unsplash.it/200/201" alt="" />
-            <form onSubmit={handleCreatePost}>
+            <FormStyle onSubmit={handleCreatePost}>
               <input
                 onChange={handleChangePost}
                 value={newPost}
                 type="text"
-                placeholder="What’s on your mind, Jennifer?"
+                placeholder="What’s on your mind?"
               />
-              <i className="far fa-paper-plane"></i>
-            </form>
+              <PostButton 
+              onClick={handleCreatePost}
+              className="far fa-paper-plane">
+              </PostButton>
+            </FormStyle>
           </Status>
         </Content>
         {posts.length

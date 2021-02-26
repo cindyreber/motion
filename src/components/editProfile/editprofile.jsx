@@ -1,5 +1,14 @@
 import styled from "styled-components"
+import Navbar from "../navbar/index"
 
+
+const MainContent = styled.div `
+min-height: 100vh; 
+`;
+
+const NavProfile =  styled.div `
+box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.36);
+`;
 
 const BgHeroImg = styled.header `
  height: 200px;
@@ -185,6 +194,10 @@ const TagInput = styled.div `
 function App() {
   return (
     <>
+    <MainContent> 
+    <NavProfile>
+         <Navbar />
+     </NavProfile> 
     <BgHeroImg>
     <i class="fas fa-camera"><span class="upload">Upload Image</span></i>
    </BgHeroImg>
@@ -243,6 +256,7 @@ function App() {
        </FormDetails>
    </ProfileWrapper>
 </MainWrapper>
+</MainContent> 
 </>
   )
 }
