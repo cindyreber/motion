@@ -69,6 +69,13 @@ const EditProfileButton = styled.button`
   border: none;
   border-radius: 25px;
   padding: 10px 20px;
+  cursor: pointer;
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 10px #dedede; 
+    border:1px solid #dedede;
+  }
 `;
 
 const RightWrapper = styled.div`
