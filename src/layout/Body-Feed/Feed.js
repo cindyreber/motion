@@ -32,18 +32,25 @@ const Feed = () => {
     setNewPost(val);
   };
 
-  // not working
-  const handleDelete = () => {
-    console.log("handleeee");
+  // working. We pass de id on the icon (three dots)
+  const handleDelete = (id) => {
     const asyncCall = async () => {
-      const res = await deletePost(581);
-      console.log(res);
+      await deletePost(id);
     };
     asyncCall();
   };
   const handleCreatePost = (e) => {
     e.preventDefault();
-    dispatch(createPost({ content: newPost, images: [], shared: "" }));
+    // const formData = new FormData();         what we should do to upload image
+    // // formData.append('file', this.state.image);
+    // formData.append('comment', this.state.comment);
+    dispatch(
+      createPost({
+        content: newPost,
+        images: [],
+        shared: "",
+      })
+    );
   };
   return (
     <Main>
@@ -90,7 +97,7 @@ const Feed = () => {
                       </div>
                       <div className="more-details">
                         <i
-                          onClick={handleDelete}
+                          onClick={() => handleDelete(post.id)}
                           className="fas fa-ellipsis-v"
                         ></i>
                       </div>

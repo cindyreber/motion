@@ -17,7 +17,11 @@ export const getPostsApi = async (url) => {
 export const createPostApi = async (data, URL) => {
   if (!token) return new Error("Log in please");
   let url = `${BASE_URL}${URL}`;
-  const response = await axios.post(url, { content: data.content }, config);
+  const response = await axios.post(
+    url,
+    { content: data.content, images: data.images },
+    config
+  );
   return response.data;
 };
 
