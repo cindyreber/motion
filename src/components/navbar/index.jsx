@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import ProfileData from "../../store/actions/profileData";
+import profileData from "../../store/actions/profileData";
 import friendsAction from "../../store/actions/friendsAction";
 import { apiProfile } from "../../api/apiProfile";
 import { getPostsApi } from "../../api/apiPosts";
@@ -174,7 +174,8 @@ const NavBar = () => {
   useEffect(async () => {
     if (localStorage.getItem("token")) {
       const response = await apiProfile();
-      dispatch(ProfileData(response));
+      console.log(response, "res from navbar");
+      dispatch(profileData(response));
     } else {
       history.push("/");
     }
@@ -183,12 +184,12 @@ const NavBar = () => {
   // api call working
   const handleClick = () => {
     console.log("inside");
-    const asyncCall = async () => {   
+    const asyncCall = async () => {
       const res = await getPostsApi("friends/");
       dispatch(friendsAction(res));
     };
 
-    asyncCall();  
+    asyncCall();
     // history.push('/friends')             redirect to the future friends cards
   };
   const goProfile = () => {

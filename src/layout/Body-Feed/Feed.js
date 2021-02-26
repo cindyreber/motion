@@ -22,6 +22,8 @@ import { deletePost } from "../../api/apiPosts";
 const Feed = () => {
   const [newPost, setNewPost] = useState("");
   const posts = useSelector((state) => state.posts.friends);
+  const user = useSelector((state) => state.userData);
+  console.log(user, "user");
   console.log(posts, "posts");
   const dispatch = useDispatch();
 
@@ -72,7 +74,7 @@ const Feed = () => {
                 onChange={handleChangePost}
                 value={newPost}
                 type="text"
-                placeholder="What’s on your mind?"
+                placeholder={`What’s on your mind ${user.first_name}?`}
               />
               <PostButton
                 onClick={handleCreatePost}
