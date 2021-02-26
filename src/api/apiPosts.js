@@ -46,3 +46,13 @@ export const deletePost = async (id) => {
   const response = await axios.delete(`${BASE_URL}posts/${id}/`, config);
   console.log(response, "response from delete api");
 };
+
+// api/social/posts/toggle-like/int:post_id>/
+// export toggleLike = () => {
+//   const response = await axios.post(
+//     url,
+//     { content: data.content, images: data.images },
+//     config
+//   );
+//   return response.data;
+// }

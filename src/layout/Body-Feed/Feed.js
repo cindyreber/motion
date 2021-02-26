@@ -14,7 +14,7 @@ import {
   Post,
   SocialMedia,
   FormStyle,
-  PostButton
+  PostButton,
 } from "../feedStyle";
 import { getPostsApi } from "../../api/apiPosts";
 import { deletePost } from "../../api/apiPosts";
@@ -22,6 +22,7 @@ import { deletePost } from "../../api/apiPosts";
 const Feed = () => {
   const [newPost, setNewPost] = useState("");
   const posts = useSelector((state) => state.posts.friends);
+  console.log(posts, "posts");
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -73,10 +74,10 @@ const Feed = () => {
                 type="text"
                 placeholder="What’s on your mind?"
               />
-              <PostButton 
-              onClick={handleCreatePost}
-              className="far fa-paper-plane">
-              </PostButton>
+              <PostButton
+                onClick={handleCreatePost}
+                className="far fa-paper-plane"
+              ></PostButton>
             </FormStyle>
           </Status>
         </Content>
