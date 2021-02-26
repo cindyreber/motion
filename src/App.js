@@ -8,8 +8,8 @@ import VerificationForm from "./components/verification";
 import Congratulations from "./components/congratulations";
 import Feed from "./layout/Body-Feed/Feed";
 import Profile from "./layout/Profile/profile";
-import Friendscard from "./components/card/friendsCard"
-import editProfile from "./components/EditProfile/editprofile"
+import Friendscard from "./components/card/friendsCard";
+import EditProfile from "./components/EditProfile/Editprofile";
 
 export const App = () => {
   return (
@@ -19,13 +19,12 @@ export const App = () => {
           <Switch>
             <Route path="/" exact component={LoginForm} />
             <Route path="/friends-card" exact component={Friendscard} />
-            <Route path="/edit-profile" exact component={editProfile} />
+            <Route path="/edit-profile" exact component={EditProfile} />
             <Route path="/feed" exact component={Feed} />
             <Route path="/signup" exact component={SignUp} />
             <Route path="/congratulations" exact component={Congratulations} />
             <Route path="/verification" exact component={VerificationForm} />
-            <Route path="/profile" exact component={Profile}/>
-
+            <Route path="/profile" exact component={Profile} />
 
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
