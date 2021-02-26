@@ -177,13 +177,14 @@ const NavBar = () => {
 
   // api call working
   const handleClick = () => {
-    // history.push('/friends')             redirect to the future friends cards
+ // redirect to the future friends cards
     console.log("inside");
-    const asyncCall = async () => {
+    const asyncCall = async () => {   
       const res = await getPostsApi("friends/");
       console.log(res, "res from navbar friends call api");
     };
-    asyncCall();
+    asyncCall();  
+   // history.push('/friends')  
   };
 
   const history = useHistory();
