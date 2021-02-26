@@ -47,6 +47,7 @@ const PostsLogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-right: 50px;
+  cursor: pointer;
 
   :hover {
     border-bottom: 2px solid #b192fe;
@@ -62,6 +63,8 @@ const PostsLogo = styled.img`
 const FriendsLogoContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
   & p {
     padding: 10px;
   }
@@ -94,13 +97,24 @@ const DropdownList = styled.div`
 
 const ListStyle = styled.li`
   list-style: none;
-  padding: 10px;
+  padding: 15px 30px;
   width: 80px;
   font-size: 14px;
+  margin: 5px 0;
+  cursor: pointer;
 
   :hover {
     background-color: white;
   }
+`;
+
+const Icons = styled.i`
+padding-right: 20px;
+`;
+
+const ListContainer = styled.ul`
+margin: 0;
+padding: 0;
 `;
 
 const DropdownMenu = () => {
@@ -113,17 +127,20 @@ const DropdownMenu = () => {
 
   const routeChangeLogout = () => {
     let path = `/`;
+    localStorage.clear();
     history.push(path);
   };
 
   return (
     <DropdownList className="dropdown">
-      <ul>
+      <ListContainer>
         <ListStyle onClick={routeChangeToProfile}>
-          <i className="fas fa-user-alt"></i>Profile
+          <Icons className="fas fa-user-alt"></Icons>Profile
         </ListStyle>
-        <ListStyle onClick={routeChangeLogout}>Logout</ListStyle>
-      </ul>
+        <ListStyle onClick={routeChangeLogout}> 
+            <Icons className="fas fa-sign-out-alt"></Icons>Logout
+        </ListStyle>
+      </ListContainer>
     </DropdownList>
   );
 };
@@ -203,19 +220,6 @@ const NavBar = () => {
           </NavItem>
         </RightItems>
       </NavContainer>
-
-      {/* <SearchContainer>
-            <SearchBar>
-                <Magnifyer src={search}/>
-                <InputField type="text" placeholder="Search posts..."></InputField>
-            </SearchBar>
-
-            <RightButtonContainer>
-                <RightButton>Liked</RightButton>
-                <RightButton>Friends</RightButton>
-                <RightButton>Follow</RightButton>
-            </RightButtonContainer>
-        </SearchContainer> */}
     </Wrapper>
   );
 };
