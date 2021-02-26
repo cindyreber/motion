@@ -52,7 +52,7 @@ function LoginForm(props) {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     type="text"
-                    placeholder="Username"
+                    placeholder="E-Mail"
                   />
                 </FormFieldWrapper>
                 <FormFieldWrapper>
@@ -65,7 +65,7 @@ function LoginForm(props) {
                   />
                 </FormFieldWrapper>
                 <div className="signin-content">
-                  <Button>SIGNIN</Button>
+                  <Button>SIGN IN</Button>
                 </div>
               </form>
             </FormInnerWrapper>
