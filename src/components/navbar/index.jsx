@@ -35,12 +35,16 @@ const MotionLogoContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 80px 0 20px;
+  & h3 {
+    cursor: pointer;
+  }
 `;
 
 const MotionLogo = styled.img`
   width: 30px;
   height: 30px;
   padding: 30px 10px;
+  cursor: pointer;
 `;
 
 const PostsLogoContainer = styled.div`
@@ -109,12 +113,12 @@ const ListStyle = styled.li`
 `;
 
 const Icons = styled.i`
-padding-right: 20px;
+  padding-right: 20px;
 `;
 
 const ListContainer = styled.ul`
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 `;
 
 const DropdownMenu = () => {
@@ -137,8 +141,8 @@ const DropdownMenu = () => {
         <ListStyle onClick={routeChangeToProfile}>
           <Icons className="fas fa-user-alt"></Icons>Profile
         </ListStyle>
-        <ListStyle onClick={routeChangeLogout}> 
-            <Icons className="fas fa-sign-out-alt"></Icons>Logout
+        <ListStyle onClick={routeChangeLogout}>
+          <Icons className="fas fa-sign-out-alt"></Icons>Logout
         </ListStyle>
       </ListContainer>
     </DropdownList>
@@ -177,14 +181,17 @@ const NavBar = () => {
 
   // api call working
   const handleClick = () => {
- // redirect to the future friends cards
     console.log("inside");
     const asyncCall = async () => {   
       const res = await getPostsApi("friends/");
       console.log(res, "res from navbar friends call api");
     };
+
     asyncCall();  
-   // history.push('/friends')  
+    // history.push('/friends')             redirect to the future friends cards
+  };
+  const goProfile = () => {
+    history.push("/profile");
   };
 
   const history = useHistory();
@@ -214,8 +221,13 @@ const NavBar = () => {
         </LeftItems>
 
         <RightItems>
-          <Bell />
-          <Avatar src={jennifer} alt="jennifer" />
+          <Bell style={{ cursor: "pointer" }} />
+          <Avatar
+            style={{ cursor: "pointer" }}
+            onClick={goProfile}
+            src={jennifer}
+            alt="jennifer"
+          />
           <NavItem icon={<MenuIcon />}>
             <DropdownMenu></DropdownMenu>
           </NavItem>
