@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import ProfileData from "../../store/actions/profileData";
+import friendsAction from "../../store/actions/friendsAction";
 import { apiProfile } from "../../api/apiProfile";
 import { getPostsApi } from "../../api/apiPosts";
 import styled from "styled-components";
@@ -184,7 +185,7 @@ const NavBar = () => {
     console.log("inside");
     const asyncCall = async () => {
       const res = await getPostsApi("friends/");
-      console.log(res, "res from navbar friends call api");
+      dispatch(friendsAction(res));
     };
     asyncCall();
     // history.push('/friends')             redirect to the future friends cards
