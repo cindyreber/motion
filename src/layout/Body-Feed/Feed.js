@@ -32,11 +32,11 @@ const Feed = () => {
     setNewPost(val);
   };
 
-  // not working ask TAs
+  // not working
   const handleDelete = () => {
     console.log("handleeee");
     const asyncCall = async () => {
-      const res = await deletePost("536");
+      const res = await deletePost(581);
       console.log(res);
     };
     asyncCall();

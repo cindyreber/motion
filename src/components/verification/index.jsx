@@ -63,7 +63,7 @@ const VerificationForm = () => {
                       onChange={(e) => setEmail(e.target.value)}
                       value={email}
                       type="text"
-                      placeholder="Email"
+                      placeholder="E-Mail"
                     />
                   </FormFieldWrapper>
                   <FormFieldWrapper>
@@ -98,7 +98,7 @@ const VerificationForm = () => {
                     <input
                       onChange={(e) => setPassword(e.target.value)}
                       value={password}
-                      type="text"
+                      type="password"
                       placeholder="Password"
                     />
                   </FormFieldWrapper>
@@ -106,7 +106,7 @@ const VerificationForm = () => {
                     <input
                       onChange={(e) => setPassordRepeat(e.target.value)}
                       value={password_repeat}
-                      type="text"
+                      type="password"
                       placeholder="Password Repeat"
                     />
                   </FormFieldWrapper>

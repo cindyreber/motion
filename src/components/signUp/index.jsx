@@ -43,7 +43,7 @@ const SignUp = (props) => {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                     type="text"
-                    placeholder="Email"
+                    placeholder="E-Mail"
                   />
                 </FormFieldWrapper>
                 <div className="signin-content">

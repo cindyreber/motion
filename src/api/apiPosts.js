@@ -39,6 +39,6 @@ export const searchApi = async (term) => {
 };
 
 export const deletePost = async (id) => {
-  const response = await axios.get(`${BASE_URL}posts/${id}/`, config);
+  const response = await axios.delete(`${BASE_URL}posts/${id}/`, config);
   console.log(response, "response from delete api");
 };

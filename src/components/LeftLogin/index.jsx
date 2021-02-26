@@ -119,7 +119,7 @@ export const PurpleStyle = () => {
                 <SocialMediaButtons src={facebook}/>
                 <SocialMediaButtons src={instagram}/>
             </SocialMediaContainer>
-                <p>© Motion 2018. All right reserved.</p>
+                <p>© Motion 2018. All rights reserved.</p>
         </BottomWrapper>
     </LeftContainer>
     );
