@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../navbar/index";
+import Profile from "../../layout/Profile/profile";
 
 const MainContent = styled.div`
   min-height: 100vh;
 `;
 const Nav = styled.div`
-  margin-bottom: 30px;
   box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.36);
 `;
 
@@ -104,7 +104,7 @@ function FriendsCard() {
         <Nav>
           <Navbar />
         </Nav>
-
+        <Profile />
         <CardSection>
           <Card>
             <img
