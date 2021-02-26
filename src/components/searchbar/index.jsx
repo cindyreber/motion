@@ -48,6 +48,7 @@ const RightButton = styled.p`
   margin: 0 20px;
   color: grey;
   padding: 30px 0;
+  cursor: pointer;
 
   :hover {
     border-bottom: 2px solid black;

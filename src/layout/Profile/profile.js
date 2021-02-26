@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import NavBar from "../../components/navbar/index";
+// import NavBar from "../../components/navbar/index";
 import jennifer from "../../components/LeftLogin/assets/images/users/jennifer.png";
 
 import { updateProfile } from "../../api/apiProfile";
@@ -12,13 +12,37 @@ height: 20%;
 
 `; */
 
+
+//****** Tenzin changes/ 
+const BgHeroImg = styled.header `
+    height: 200px;
+    background-image: url("https://source.unsplash.com/user/erondu");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    & > .fa-camera {
+      color: white;
+     margin-right: 250px;
+     margin-bottom: 50px;
+  }
+ .upload {
+     padding: 10px;
+ }
+`;
+
+//****** */
 const ProfileHeader = styled.header`
   max-width: 70rem;
-  margin: 50px auto;
+  margin: -55px auto 50px;
   height: 350px;
   display: flex;
   border-radius: 5px;
   box-shadow: 0 4px 40px 4px #dedede;
+  z-index: 1;
+  background-color:white;
 `;
 
 const PersonContainer = styled.div`
@@ -45,6 +69,13 @@ const EditProfileButton = styled.button`
   border: none;
   border-radius: 25px;
   padding: 10px 20px;
+  cursor: pointer;
+
+  :focus {
+    outline: none;
+    box-shadow: 0 0 10px #dedede; 
+    border:1px solid #dedede;
+  }
 `;
 
 const RightWrapper = styled.div`
@@ -128,9 +159,12 @@ const Profile = () => {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       {/* <HeaderImage src={headerpicture}>
       </HeaderImage> */}
+      <BgHeroImg>
+       <i class="fas fa-camera"><span class="upload">Upload Image</span></i>
+      </BgHeroImg>
       <ProfileHeader>
         <PersonContainer>
           <Person>

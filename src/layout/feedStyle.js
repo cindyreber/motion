@@ -156,3 +156,15 @@ export const Post = styled.div`
     }
   }
 `;
+
+export const FormStyle = styled.form`
+  display: flex;
+`;
+
+export const PostButton = styled.i`
+  cursor: pointer;
+
+  :hover {
+    background-color: #ac73fc;
+  }
+`;
